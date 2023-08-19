@@ -2,23 +2,22 @@
 {
     internal sealed class Entity : IEquatable<Entity>
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; }
+
+        public Entity() : this(Guid.NewGuid()) { }
 
         public Entity(Guid id) => Id = id;
 
         public bool Equals(Entity? other)
         {
-            if (other is null) 
-                return false;
+            if (other is null) return false;
             return ReferenceEquals(this, other) || Id.Equals(other.Id);
         }
 
         public override bool Equals(object? obj)
         {
-            if(obj is null) 
-                return false;
-            if(ReferenceEquals(this, obj)) 
-                return true;
+            if(obj is null) return false;
+            if(ReferenceEquals(this, obj)) return true;
             return obj.GetType() == GetType() && Equals((Entity)obj);
         }
 
