@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Exceptions
 {
-    internal class InvalidEmailException : Exception
+    internal sealed class InvalidEmailException : Exception
     {
         public InvalidEmailException(string message) : base(message) { }
     }

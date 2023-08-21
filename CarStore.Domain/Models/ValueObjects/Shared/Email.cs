@@ -1,7 +1,7 @@
 ﻿using CarStore.Domain.Exceptions;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarStore.Domain.Models.ValueObjects
+namespace CarStore.Domain.Models.ValueObjects.Shared
 {
     internal sealed class Email : ValueObject<Email>
     {
@@ -10,7 +10,7 @@ namespace CarStore.Domain.Models.ValueObjects
         public Email(string emailAddress)
         {
             if (string.IsNullOrEmpty(emailAddress))
-                throw new InvalidEmailException("Email cannot be null or empty");
+                throw new InvalidEmailException("Email cannot be empty");
             if (!new EmailAddressAttribute().IsValid(emailAddress))
                 throw new InvalidEmailException($"The provided value {emailAddress} is not an email address");
 

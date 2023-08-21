@@ -2,11 +2,9 @@
 {
     internal sealed class Entity : IEquatable<Entity>
     {
-        public Guid Id { get; }
+        public string Id { get; }
 
-        public Entity() : this(Guid.NewGuid()) { }
-
-        public Entity(Guid id) => Id = id;
+        public Entity(string id) => Id = id;
 
         public bool Equals(Entity? other)
         {
@@ -23,8 +21,8 @@
 
         public override int GetHashCode() => Id.GetHashCode();
 
-        public static implicit operator Entity(Guid id) => new(id);
+        public static implicit operator Entity(string id) => new(id);
 
-        public static implicit operator Guid(Entity entity) => entity.Id;
+        public static implicit operator string(Entity entity) => entity.Id;
     }
 }

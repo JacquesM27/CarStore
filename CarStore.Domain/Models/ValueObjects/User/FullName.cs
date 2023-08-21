@@ -1,6 +1,6 @@
 ﻿using CarStore.Domain.Exceptions;
 
-namespace CarStore.Domain.Models.ValueObjects
+namespace CarStore.Domain.Models.ValueObjects.User
 {
     internal sealed class FullName : ValueObject<FullName>
     {
@@ -10,12 +10,12 @@ namespace CarStore.Domain.Models.ValueObjects
         public FullName(string firstName, string lastName)
         {
             if (string.IsNullOrEmpty(firstName))
-                throw new InvalidFullNameException("First name cannot be null or empty");
-            if(firstName.Length is < 2 or > 100)
+                throw new InvalidFullNameException("First name cannot be empty");
+            if (firstName.Length is < 2 or > 100)
                 throw new InvalidFullNameException("First name length must be longer than 2 and shorter than 100");
 
             if (string.IsNullOrEmpty(lastName))
-                throw new InvalidFullNameException("Last name cannot be null or empty");
+                throw new InvalidFullNameException("Last name cannot be empty");
             if (lastName.Length is < 2 or > 100)
                 throw new InvalidFullNameException("Last name length must be longer than 2 and shorter than 100");
 
