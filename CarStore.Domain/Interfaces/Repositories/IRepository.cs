@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarStore.Domain.Models.ValueObjects.SalesOffer
+namespace CarStore.Domain.Interfaces.Repositories
 {
-    internal class EngineDetails
+    internal class IRepository
     {
     }
 }

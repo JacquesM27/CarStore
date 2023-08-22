@@ -1,14 +1,15 @@
-﻿using CarStore.Domain.Exceptions;
+﻿using CarStore.Domain.Enum;
+using CarStore.Domain.Exceptions;
 
-namespace CarStore.Domain.Models.ValueObjects.SalesOffer
+namespace CarStore.Domain.Models.ValueObjects.Car
 {
     internal sealed class CarModel : ValueObject<CarModel>
     {
         public string Manufacturer { get; init; }
         public string Model { get; init; }
-        public string? Generation { get; private set; }
-
-        public CarModel(string manufacturer, string model, string? generation)
+        public string? Generation { get; init; }
+        public CarChasis CarChasis { get; init; }
+        public CarModel(string manufacturer, string model, string? generation, CarChasis carChasis)
         {
             if (string.IsNullOrEmpty(manufacturer))
                 throw new InvalidCarModelException("Manufacturer cannot be empty");
@@ -18,14 +19,15 @@ namespace CarStore.Domain.Models.ValueObjects.SalesOffer
             Manufacturer = manufacturer;
             Model = model;
             Generation = generation;
+            CarChasis = carChasis;
         }
 
         protected override IEnumerable<object> GetAllProperties()
         {
             yield return Manufacturer;
             yield return Model;
-            if(Generation is not null)
-                yield return Generation;
+            yield return Generation;
+            yield return CarChasis;
         }
     }
 }

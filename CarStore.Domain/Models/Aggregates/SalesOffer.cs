@@ -5,13 +5,14 @@ namespace CarStore.Domain.Models.Aggregates
 {
     internal sealed class SalesOffer : AggregateRoot<SalesOffer>
     {
-        public CarModel CarModel { get; set; }
+        public string AuthorId { get; init; }
+        public string CarId { get; init; }
         public Address Address { get; init; }
-        public Phone Phone { get; set; }
-
-        public SalesOffer()
-        {
-
-        }
+        public Phone Phone { get; init; }
+        public Email Email { get; init; }
+        public Description Description { get; init; }
+        public Price Price { get; init; }
+        public Price OfferPrice { get; init; }
+        public State State { get; init; }
     }
 }
