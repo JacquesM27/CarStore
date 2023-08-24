@@ -1,4 +1,5 @@
-﻿using CarStore.Domain.Models.SalesOffers;
+﻿using CarStore.Domain.Interfaces.Repositories.Base;
+using CarStore.Domain.Models.SalesOffers;
 
 namespace CarStore.Domain.Interfaces.Repositories
 {
