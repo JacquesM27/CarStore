@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class Equipment : ValueObject<Equipment>
+    public sealed class Equipment : ValueObject<Equipment>
     {
         public IEnumerable<string> CarEquipment { get; init; }
         public Equipment(IEnumerable<string> carEquipment)

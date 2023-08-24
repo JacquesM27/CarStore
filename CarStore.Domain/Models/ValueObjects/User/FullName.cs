@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.User
 {
-    internal sealed class FullName : ValueObject<FullName>
+    public sealed class FullName : ValueObject<FullName>
     {
         public string FirstName { get; init; }
         public string LastName { get; init; }

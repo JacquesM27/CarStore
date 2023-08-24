@@ -2,7 +2,8 @@
 
 namespace CarStore.Domain.Models.Aggregates
 {
-    internal sealed class Car : AggregateRoot<Car>
+    public sealed class Car<T> : AggregateRoot<T> 
+        where T : notnull
     {
         public CarModel CarModel { get; init; }
         public EngineDetail EngineDetail { get; init; }
@@ -16,7 +17,8 @@ namespace CarStore.Domain.Models.Aggregates
         public DamageStatus DamageStatus { get; init; }
         public OriginCountry OriginCountry { get; set; }
 
-        public Car(CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry)
+        public Car(T id, CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry)
+            : base(id)
         {
             CarModel = carModel;
             EngineDetail = engineDetail;

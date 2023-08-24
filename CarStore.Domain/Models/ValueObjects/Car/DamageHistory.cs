@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class DamageHistory : ValueObject<DamageHistory>
+    public sealed class DamageHistory : ValueObject<DamageHistory>
     {
         public bool HadAccident { get; init; }
         public bool HadCollision { get; init; }

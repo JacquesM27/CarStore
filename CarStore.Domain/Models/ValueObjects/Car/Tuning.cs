@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class Tuning : ValueObject<Tuning>
+    public sealed class Tuning : ValueObject<Tuning>
     {
         public bool Tuned { get; init; }
         public List<string> Mods { get; init; }

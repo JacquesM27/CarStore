@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class ProductionDate : ValueObject<ProductionDate>
+    public sealed class ProductionDate : ValueObject<ProductionDate>
     {
         public int Year { get; init; }
 

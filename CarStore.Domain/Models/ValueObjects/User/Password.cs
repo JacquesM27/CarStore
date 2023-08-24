@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CarStore.Domain.Models.ValueObjects.User
 {
-    internal sealed class Password
+    public sealed class Password
     {
         public byte[] Hash { get; private set; }
         public byte[] Salt { get; private set; }

@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class InspectionStatus : ValueObject<InspectionStatus>
+    public sealed class InspectionStatus : ValueObject<InspectionStatus>
     {
         public DateOnly EndDate { get; init; }
 

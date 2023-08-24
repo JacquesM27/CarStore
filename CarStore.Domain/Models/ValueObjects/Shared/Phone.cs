@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace CarStore.Domain.Models.ValueObjects.Shared
 {
-    internal sealed class Phone : ValueObject<Phone>
+    public sealed class Phone : ValueObject<Phone>
     {
         public string Number { get; init; }
 

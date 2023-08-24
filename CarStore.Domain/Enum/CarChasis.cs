@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Enum
 {
-    internal enum CarChasis
+    public enum CarChasis
     {
         Hatchback = 0,
         Coupe = 1,

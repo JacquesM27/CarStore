@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class OriginCountry : ValueObject<OriginCountry>
+    public sealed class OriginCountry : ValueObject<OriginCountry>
     {
         public string Country { get; init; }
         public SteeringwheelSite SteeringwheelSite { get; init; }

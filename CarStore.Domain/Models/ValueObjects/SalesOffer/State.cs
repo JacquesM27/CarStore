@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.SalesOffer
 {
-    internal sealed class State : ValueObject<State>
+    public sealed class State : ValueObject<State>
     {
         public OfferState OfferState { get; init; }
 

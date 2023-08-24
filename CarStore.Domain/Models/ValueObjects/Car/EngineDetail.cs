@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class EngineDetail : ValueObject<EngineDetail>
+    public sealed class EngineDetail : ValueObject<EngineDetail>
     {
         public double Capacity { get; init; }
         public double HorsePower { get; init; }

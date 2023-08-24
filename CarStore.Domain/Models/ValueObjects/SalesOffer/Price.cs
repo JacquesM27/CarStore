@@ -3,7 +3,7 @@ using CarStore.Domain.Exceptions;
 
 namespace CarStore.Domain.Models.ValueObjects.SalesOffer
 {
-    internal sealed class Price : ValueObject<Price>
+    public sealed class Price : ValueObject<Price>
     {
         public decimal Value { get; init; }
         public Currency Currency { get; init; }

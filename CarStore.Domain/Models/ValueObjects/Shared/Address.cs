@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarStore.Domain.Models.ValueObjects.Shared
 {
-    internal sealed class Address : ValueObject<Address>
+    public sealed class Address : ValueObject<Address>
     {
         public string Country { get; init; }
         public string Region { get; init; }

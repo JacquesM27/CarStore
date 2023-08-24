@@ -2,16 +2,18 @@
 
 namespace CarStore.Domain.Models.ValueObjects.SalesOffer
 {
-    public sealed class Description : ValueObject<Description>
+    public sealed class Title : ValueObject<Title>
     {
         public string Value { get; init; }
-        public Description(string value)
+
+        public Title(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new InvalidDescriptionException("Description cannot be empty.");
-            
+                throw new InvalidTitleException("Title cannot be empty!");
+
             Value = value;
         }
+
         protected override IEnumerable<object> GetAllProperties()
         {
             yield return Value;

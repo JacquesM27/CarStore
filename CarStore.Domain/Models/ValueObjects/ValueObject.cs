@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Models.ValueObjects
 {
-    internal abstract class ValueObject<T> : IEquatable<T> where T : ValueObject<T>
+    public abstract class ValueObject<T> : IEquatable<T> where T : ValueObject<T>
     {
         protected abstract IEnumerable<object> GetAllProperties();
         

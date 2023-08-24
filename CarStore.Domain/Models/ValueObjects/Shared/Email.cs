@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarStore.Domain.Models.ValueObjects.Shared
 {
-    internal sealed class Email : ValueObject<Email>
+    public sealed class Email : ValueObject<Email>
     {
         public string EmailAddress { get; init; }
 

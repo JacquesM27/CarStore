@@ -1,7 +1,7 @@
 ﻿namespace CarStore.Domain.Models
 {
-    internal abstract class AggregateRoot<T>
+    public class AggregateRoot<T> : Entity<T> where T : notnull
     {
-        public T Id { get; protected set; }
+        protected AggregateRoot(T id) : base(id) { }
     }
 }

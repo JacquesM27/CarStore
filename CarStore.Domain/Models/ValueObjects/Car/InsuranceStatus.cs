@@ -2,7 +2,7 @@
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class InsuranceStatus : ValueObject<InsuranceStatus>
+    public sealed class InsuranceStatus : ValueObject<InsuranceStatus>
     {
         public string InsurerName { get; init; }
         public DateOnly EndDate { get; init; }

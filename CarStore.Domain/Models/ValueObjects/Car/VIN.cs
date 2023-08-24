@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class VIN : ValueObject<VIN>
+    public sealed class VIN : ValueObject<VIN>
     {
         public string Value { get; init; }
 

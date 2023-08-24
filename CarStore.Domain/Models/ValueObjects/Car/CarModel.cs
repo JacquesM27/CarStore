@@ -3,7 +3,7 @@ using CarStore.Domain.Exceptions;
 
 namespace CarStore.Domain.Models.ValueObjects.Car
 {
-    internal sealed class CarModel : ValueObject<CarModel>
+    public sealed class CarModel : ValueObject<CarModel>
     {
         public string Manufacturer { get; init; }
         public string Model { get; init; }
