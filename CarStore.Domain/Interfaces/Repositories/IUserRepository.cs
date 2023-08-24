@@ -1,4 +1,5 @@
-﻿using CarStore.Domain.Models.Aggregates;
+﻿using CarStore.Domain.Interfaces.Repositories.Base;
+using CarStore.Domain.Models.Users;
 
 namespace CarStore.Domain.Interfaces.Repositories
 {
