@@ -3,7 +3,7 @@ using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars
 {
-    public sealed class Car<T> : Entity<T>
+    public sealed class Car<T> : AggregateRoot<T>
         where T : notnull
     {
         public CarModel CarModel { get; init; }
@@ -16,9 +16,13 @@ namespace CarStore.Domain.Models.Cars
         public VIN VIN { get; init; }
         public DamageHistory DamageHistory { get; init; }
         public DamageStatus DamageStatus { get; init; }
-        public OriginCountry OriginCountry { get; set; }
+        public OriginCountry OriginCountry { get; init; }
+        public Mileage Mileage { get; init; }
+        public Gearbox Gearbox { get; init; }
+        public Seats Seats { get; init; }
+        public Doors Doors { get; init; }
 
-        public Car(T id, CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry)
+        public Car(T id, CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry, Mileage mileage, Gearbox gearbox, Seats seats, Doors doors)
             : base(id)
         {
             CarModel = carModel;
@@ -32,6 +36,10 @@ namespace CarStore.Domain.Models.Cars
             DamageHistory = damageHistory;
             DamageStatus = damageStatus;
             OriginCountry = originCountry;
+            Mileage = mileage;
+            Gearbox = gearbox;
+            Seats = seats;
+            Doors = doors;
         }
     }
 }

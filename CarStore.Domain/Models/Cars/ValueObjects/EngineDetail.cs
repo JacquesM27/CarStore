@@ -1,4 +1,5 @@
-﻿using CarStore.Domain.Exceptions;
+﻿using CarStore.Domain.Enum;
+using CarStore.Domain.Exceptions;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
@@ -7,8 +8,9 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
         public double Capacity { get; init; }
         public double HorsePower { get; init; }
         public double Torque { get; init; }
+        public FuelType FuelType { get; init; }
 
-        public EngineDetail(double capacity, double horsePower, double torque)
+        public EngineDetail(double capacity, double horsePower, double torque, FuelType fuelType)
         {
             if (capacity <= 0)
                 throw new InvalidEngineDetailException("Engine capacity cannot be less or equal 0");
@@ -20,6 +22,7 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
             Capacity = capacity;
             HorsePower = horsePower;
             Torque = torque;
+            FuelType = fuelType;
         }
     }
 }

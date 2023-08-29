@@ -4,7 +4,7 @@ using CarStore.Domain.Models.Users.ValueObjects;
 
 namespace CarStore.Domain.Models.Users
 {
-    public sealed class User<T> : Entity<T>
+    public sealed class User<T> : AggregateRoot<T>
         where T : notnull
     {
         public FullName FullName { get; init; }

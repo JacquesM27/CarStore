@@ -5,7 +5,7 @@ namespace CarStore.Domain.Interfaces.Repositories.Base
 {
     public interface IRepository<TEntity, TId>
         where TId : notnull
-        where TEntity : Entity<TId>
+        where TEntity : AggregateRoot<TId>
     {
         IQueryable<TEntity> AsQueryable();
 

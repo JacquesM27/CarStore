@@ -20,7 +20,7 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
 
         public static implicit operator string(VIN vin) => vin.Value;
 
-        public static implicit operator VIN(string vin) => new VIN(vin);
+        public static implicit operator VIN(string vin) => new(vin);
 
         public override string ToString() => Value;
     }
