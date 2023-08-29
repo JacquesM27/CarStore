@@ -1,10 +1,9 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 using System.Text.RegularExpressions;
 
 namespace CarStore.Domain.Models.Shared.ValueObjects
 {
-    public sealed class Phone : ValueObject<Phone>
+    public readonly record struct Phone
     {
         public string Number { get; init; }
 
@@ -23,9 +22,10 @@ namespace CarStore.Domain.Models.Shared.ValueObjects
             Number = phone;
         }
 
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            throw new NotImplementedException();
-        }
+        public static implicit operator Phone(string phone) => new(phone);
+
+        public static implicit operator string(Phone phone) => phone.Number;
+
+        public override string ToString() => Number;
     }
 }

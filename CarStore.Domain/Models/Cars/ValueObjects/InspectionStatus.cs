@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class InspectionStatus : ValueObject<InspectionStatus>
+    public readonly record struct InspectionStatus
     {
         public DateOnly EndDate { get; init; }
 
@@ -13,11 +12,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
                 throw new InvalidInspectionStatusException("Inspection cannot be expired");
 
             EndDate = endDate;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return EndDate;
         }
     }
 }

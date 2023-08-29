@@ -1,10 +1,9 @@
 ﻿using CarStore.Domain.Enum;
 using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.SalesOffers.ValueObjects
 {
-    public sealed class Price : ValueObject<Price>
+    public readonly record struct Price
     {
         public decimal Value { get; init; }
         public Currency Currency { get; init; }
@@ -16,12 +15,6 @@ namespace CarStore.Domain.Models.SalesOffers.ValueObjects
 
             Value = value;
             Currency = currency;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Value;
-            yield return Currency;
         }
     }
 }

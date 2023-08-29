@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class Tuning : ValueObject<Tuning>
+    public readonly record struct Tuning
     {
         public bool Tuned { get; init; }
         public List<string> Mods { get; init; }
@@ -15,12 +14,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
 
             Tuned = true;
             Mods = mods;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Tuned;
-            yield return Mods;
         }
     }
 }

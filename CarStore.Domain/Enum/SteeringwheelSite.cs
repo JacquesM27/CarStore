@@ -1,6 +1,6 @@
 ﻿namespace CarStore.Domain.Enum
 {
-    internal enum SteeringwheelSite
+    public enum SteeringwheelSite
     {
         Left,
         Right,

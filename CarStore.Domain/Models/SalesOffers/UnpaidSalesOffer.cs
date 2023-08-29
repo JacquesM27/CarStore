@@ -4,7 +4,7 @@ using CarStore.Domain.Models.Shared.ValueObjects;
 
 namespace CarStore.Domain.Models.SalesOffers
 {
-    public sealed class SalesOffer<T> : AggregateRoot<T>
+    internal class UnpaidSalesOffer<T> : AggregateRoot<T>
         where T : notnull
     {
         public string AuthorId { get; init; }
@@ -14,9 +14,10 @@ namespace CarStore.Domain.Models.SalesOffers
         public Email Email { get; init; }
         public Description Description { get; init; }
         public Price Price { get; init; }
+        public Price PriceOfPublishOffer { get; init; }
         public Title Title { get; init; }
 
-        public SalesOffer(T id, string authorId, string carId, Address address, Phone phone, Email email, Description description, Price price, Title title)
+        public UnpaidSalesOffer(T id, string authorId, string carId, Address address, Phone phone, Email email, Description description, Price price, Price priceOfPublishOffer, Title title)
             : base(id)
         {
             AuthorId = authorId;
@@ -26,7 +27,14 @@ namespace CarStore.Domain.Models.SalesOffers
             Email = email;
             Description = description;
             Price = price;
+            PriceOfPublishOffer = priceOfPublishOffer;
             Title = title;
+        }
+
+        public SalesOffer<T> PayForPublicationOffer()
+        {
+
         }
     }
 }
+b

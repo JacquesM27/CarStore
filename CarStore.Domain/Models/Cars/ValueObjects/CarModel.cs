@@ -1,10 +1,9 @@
 ﻿using CarStore.Domain.Enum;
 using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class CarModel : ValueObject<CarModel>
+    public readonly record struct CarModel
     {
         public string Manufacturer { get; init; }
         public string Model { get; init; }
@@ -21,14 +20,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
             Model = model;
             Generation = generation;
             CarChasis = carChasis;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Manufacturer;
-            yield return Model;
-            yield return Generation;
-            yield return CarChasis;
         }
     }
 }

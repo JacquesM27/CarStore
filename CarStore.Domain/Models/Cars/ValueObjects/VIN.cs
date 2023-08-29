@@ -1,10 +1,9 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 using System.Text.RegularExpressions;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class VIN : ValueObject<VIN>
+    public readonly record struct VIN
     {
         public string Value { get; init; }
 
@@ -19,9 +18,10 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
             Value = value;
         }
 
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Value;
-        }
+        public static implicit operator string(VIN vin) => vin.Value;
+
+        public static implicit operator VIN(string vin) => new VIN(vin);
+
+        public override string ToString() => Value;
     }
 }

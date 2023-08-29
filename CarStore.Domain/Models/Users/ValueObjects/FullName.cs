@@ -3,7 +3,7 @@ using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Users.ValueObjects
 {
-    public sealed class FullName : ValueObject<FullName>
+    public readonly record struct FullName
     {
         public string FirstName { get; init; }
         public string LastName { get; init; }
@@ -23,12 +23,5 @@ namespace CarStore.Domain.Models.Users.ValueObjects
             FirstName = firstName;
             LastName = lastName;
         }
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return FirstName;
-            yield return LastName;
-        }
-
-        public override string ToString() => $"{FirstName} {LastName}";
     }
 }

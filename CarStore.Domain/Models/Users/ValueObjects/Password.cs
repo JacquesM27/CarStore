@@ -3,10 +3,10 @@ using System.Text;
 
 namespace CarStore.Domain.Models.Users.ValueObjects
 {
-    public sealed class Password
+    public readonly record struct Password
     {
-        public byte[] Hash { get; private set; }
-        public byte[] Salt { get; private set; }
+        public byte[] Hash { get; init; }
+        public byte[] Salt { get; init;  }
 
         public Password(string password)
         {
@@ -15,7 +15,7 @@ namespace CarStore.Domain.Models.Users.ValueObjects
             Hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
         }
 
-        internal bool VerifyPassword(string password)
+        public bool VerifyPassword(string password)
         {
             using var hmac = new HMACSHA512(Salt);
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));

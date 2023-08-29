@@ -1,11 +1,11 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.SalesOffers.ValueObjects
 {
-    public sealed class Description : ValueObject<Description>
+    public readonly record struct Description
     {
         public string Value { get; init; }
+
         public Description(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -13,9 +13,11 @@ namespace CarStore.Domain.Models.SalesOffers.ValueObjects
 
             Value = value;
         }
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Value;
-        }
+
+        public static implicit operator Description(string value) => new(value);
+
+        public static implicit operator string(Description description) => description.Value;
+
+        public override string ToString() => Value;
     }
 }

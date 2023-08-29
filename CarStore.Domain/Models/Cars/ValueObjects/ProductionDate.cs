@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class ProductionDate : ValueObject<ProductionDate>
+    public readonly record struct ProductionDate
     {
         public int Year { get; init; }
 
@@ -16,9 +15,8 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
             Year = year;
         }
 
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Year;
-        }
+        public static implicit operator ProductionDate(int year) => new(year);
+
+        public static implicit operator int(ProductionDate productionDate) => productionDate.Year;
     }
 }

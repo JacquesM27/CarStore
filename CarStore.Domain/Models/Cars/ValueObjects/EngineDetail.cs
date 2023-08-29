@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class EngineDetail : ValueObject<EngineDetail>
+    public readonly record struct EngineDetail
     {
         public double Capacity { get; init; }
         public double HorsePower { get; init; }
@@ -21,13 +20,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
             Capacity = capacity;
             HorsePower = horsePower;
             Torque = torque;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Capacity;
-            yield return HorsePower;
-            yield return Torque;
         }
     }
 }

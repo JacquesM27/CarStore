@@ -1,8 +1,6 @@
-﻿using CarStore.Domain.Models.Shared.Base;
-
-namespace CarStore.Domain.Models.Cars.ValueObjects
+﻿namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class DamageHistory : ValueObject<DamageHistory>
+    public readonly record struct DamageHistory
     {
         public bool HadAccident { get; init; }
         public bool HadCollision { get; init; }
@@ -11,11 +9,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
         {
             HadAccident = hadAccident;
             HadCollision = hadCollision;
-        }
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return HadAccident;
-            yield return HadCollision;
         }
     }
 }

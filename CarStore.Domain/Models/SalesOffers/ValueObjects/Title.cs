@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.SalesOffers.ValueObjects
 {
-    public sealed class Title : ValueObject<Title>
+    public readonly record struct Title
     {
         public string Value { get; init; }
 
@@ -15,9 +14,8 @@ namespace CarStore.Domain.Models.SalesOffers.ValueObjects
             Value = value;
         }
 
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return Value;
-        }
+        public static implicit operator Title(string value) => new(value);
+
+        public static implicit operator string(Title title) => title.Value;
     }
 }

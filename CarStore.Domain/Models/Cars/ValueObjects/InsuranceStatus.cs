@@ -1,9 +1,8 @@
 ﻿using CarStore.Domain.Exceptions;
-using CarStore.Domain.Models.Shared.Base;
 
 namespace CarStore.Domain.Models.Cars.ValueObjects
 {
-    public sealed class InsuranceStatus : ValueObject<InsuranceStatus>
+    public readonly record struct InsuranceStatus
     {
         public string InsurerName { get; init; }
         public DateOnly EndDate { get; init; }
@@ -17,12 +16,6 @@ namespace CarStore.Domain.Models.Cars.ValueObjects
 
             InsurerName = insurerName;
             EndDate = endDate;
-        }
-
-        protected override IEnumerable<object> GetAllProperties()
-        {
-            yield return InsurerName;
-            yield return EndDate;
         }
     }
 }
