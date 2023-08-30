@@ -21,8 +21,9 @@ namespace CarStore.Domain.Models.Cars
         public Gearbox Gearbox { get; init; }
         public Seats Seats { get; init; }
         public Doors Doors { get; init; }
+        public Drive Drive { get; init; }
 
-        public Car(T id, CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry, Mileage mileage, Gearbox gearbox, Seats seats, Doors doors)
+        public Car(T id, CarModel carModel, EngineDetail engineDetail, Equipment equipment, InspectionStatus inspectionStatus, InsuranceStatus insuranceStatus, ProductionDate productionDate, Tuning tuning, VIN vIN, DamageHistory damageHistory, DamageStatus damageStatus, OriginCountry originCountry, Mileage mileage, Gearbox gearbox, Seats seats, Doors doors, Drive drive)
             : base(id)
         {
             CarModel = carModel;
@@ -40,6 +41,7 @@ namespace CarStore.Domain.Models.Cars
             Gearbox = gearbox;
             Seats = seats;
             Doors = doors;
+            Drive = drive;
         }
     }
 }

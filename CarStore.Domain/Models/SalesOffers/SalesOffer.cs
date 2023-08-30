@@ -17,8 +17,10 @@ namespace CarStore.Domain.Models.SalesOffers
         public Description Description { get; init; }
         public Price Price { get; init; }
         public Title Title { get; init; }
+        public FinancingOptions FinancingOptions { get; init; }
+        public ExpirationDate ExpirationDate { get; init; }
 
-        public SalesOffer(T id, User<T> author, Car<T> car, Address address, Phone phone, Email email, Description description, Price price, Title title)
+        internal SalesOffer(T id, User<T> author, Car<T> car, Address address, Phone phone, Email email, Description description, Price price, Title title, FinancingOptions financingOptions, ExpirationDate expirationDate)
             : base(id)
         {
             Author = author;
@@ -29,6 +31,10 @@ namespace CarStore.Domain.Models.SalesOffers
             Description = description;
             Price = price;
             Title = title;
+            FinancingOptions = financingOptions;
+            ExpirationDate = expirationDate;
         }
+        
+        //TODO: archive offer
     }
 }
