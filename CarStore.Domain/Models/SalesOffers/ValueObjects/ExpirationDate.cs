@@ -9,7 +9,7 @@ namespace CarStore.Domain.Models.SalesOffers.ValueObjects
         public ExpirationDate(DateTime value)
         {
             if (value < DateTime.Now.AddMonths(1))
-                throw new InvalidExpirationDateException("The minimum validity period of the sales offer is one month.");
+                throw new InvalidExpirationDateException("The minimum validity period is one month.");
 
             Value = value;
         }
